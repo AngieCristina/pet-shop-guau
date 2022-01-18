@@ -10,13 +10,13 @@ const apiClient = axios.create({
 });
 
 export default {
-  getProducts(perPage, page) {
-    return apiClient.get("/product?_limit=" + perPage + "&_page=" + page);
+  getProducts() {
+    return apiClient.get("/product?");
   },
   getProduct(id) {
     return apiClient.get("/product/" + id);
   },
   getCategory() {
-    return apiClient.get("product-category");
-  },
+    return apiClient.get("/product-category/");
+  }
 };
