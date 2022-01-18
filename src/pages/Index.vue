@@ -1,11 +1,4 @@
 <template>
-  <!-- <q-page class="flex flex-center">
-    <img
-      alt="Dog-logo"
-      src="~assets/dodge-face.svg"
-      style="width: 400px; height: 400px"
-    >
-  </q-page> -->
   <search-product v-on:search-text="searchText" />
   <product-card
     v-for="product in products"

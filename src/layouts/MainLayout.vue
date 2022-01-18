@@ -11,7 +11,7 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> Guau! </q-toolbar-title>
+        <q-toolbar-title> Guau!</q-toolbar-title>
         <q-btn round color="secondary" icon="shopping_cart" />
       </q-toolbar>
     </q-header>
@@ -23,19 +23,35 @@
       bordered
     >
       <q-list>
-        <q-item-label header> Categorias </q-item-label>
-        <div
+        <q-img class="absolute-top" src="~assets/cat.svg" style="height: 150px">
+        </q-img>
+      </q-list>
+
+      <q-scroll-area
+        style="
+          height: calc(100% - 150px);
+          margin-top: 150px;
+          border-right: 1px solid #ddd;
+        "
+      >
+       <div class="text-weight-bold text-center">Categorias</div>
+        <q-list
+          padding
           v-for="(category, categoryKey) in categories"
           :key="categoryKey"
           @click="onChangeCategory(category)"
         >
-          {{ category.name }}
-        </div>
-      </q-list>
+          <q-item clickable v-ripple>
+            <q-item-section>
+              {{ category.name }}
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-scroll-area>
     </q-drawer>
-  <q-page-container>
-    <q-page><index :onChangeCategory="onChangeCategory"/></q-page>
-  </q-page-container>
+    <q-page-container>
+      <q-page><index :onChangeCategory="onChangeCategory" /></q-page>
+    </q-page-container>
   </q-layout>
 </template>
 
